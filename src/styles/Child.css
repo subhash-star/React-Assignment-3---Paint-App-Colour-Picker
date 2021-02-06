@@ -5,7 +5,9 @@
     border: 1px white dotted;
     border-radius: 5px;
 }
-
+.row{
+    display: flex;
+}
 #master{
     border-radius: 5px;
     border: 2px white ridge;
