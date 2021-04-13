@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 
-const Selection=(props)=>{
-    const [bacColor, changeBacColor]=useState({ background:'' } )
-    // console.log(bacColor)
-    const fillColor=(nextBackground)=>{
-        changeBacColor({background: nextBackground})
-    }
-    return(
-        <div className="fix-box" style={bacColor} onClick={()=>props.applyColor(fillColor)}>
-            <h2 className="subheading">Selection</h2>
-        </div>
-    )
+export default class Selection extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      background: "",
+    };
+  }
+  updateColor=(value)=>{
+      this.setState({
+          background:value.background,
+      })
+
+  }
+  render() {
+    return (
+      <div
+        className="fix-box"
+        style={{ background: this.state.background }}
+        onClick={() => this.props.applyColor(this.updateColor)}
+      >
+        <h2 className="subheading">Selection</h2>
+      </div>
+    );
+  }
 }
-
-export default Selection;
